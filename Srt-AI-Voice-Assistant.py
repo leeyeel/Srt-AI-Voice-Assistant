@@ -32,12 +32,14 @@ from Sava_Utils.subtitle import Base_subtitle, Subtitle, Subtitles
 import Sava_Utils.tts_projects
 import Sava_Utils.tts_projects.bv2
 import Sava_Utils.tts_projects.gsv
+import Sava_Utils.tts_projects.fishspeech
 import Sava_Utils.tts_projects.mstts
 import Sava_Utils.tts_projects.custom
 from Sava_Utils.subtitle_translation import Translation_module
 
 BV2 = Sava_Utils.tts_projects.bv2.BV2(Sava_Utils.config)
 GSV = Sava_Utils.tts_projects.gsv.GSV(Sava_Utils.config)
+FISH = Sava_Utils.tts_projects.fishspeech.FishSpeech(Sava_Utils.config)
 MSTTS = Sava_Utils.tts_projects.mstts.MSTTS(Sava_Utils.config)
 CUSTOM = Sava_Utils.tts_projects.custom.Custom(Sava_Utils.config)
 TRANSLATION_MODULE = Translation_module(Sava_Utils.config)
@@ -417,6 +419,8 @@ if __name__ == "__main__":
                             GSV_ARGS = GSV.getUI()
                         with gr.TabItem("Bert-VITS2-HiyoriUI"):
                             BV2_ARGS = BV2.getUI()
+                        with gr.TabItem("Fish-Speech"):
+                            Fish_ARGS = FISH.getUI()
                         with gr.TabItem("Azure-TTS(Microsoft)"):
                             MSTTS_ARGS = MSTTS.getUI()
                         with gr.TabItem(i18n('Custom API')):
